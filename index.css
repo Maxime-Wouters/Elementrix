@@ -1,0 +1,33 @@
+header,
+footer {
+    padding: 50px;
+    background-color: cadetblue;
+}
+
+footer {
+    margin-top: 20px;
+}
+
+.link {
+    padding: 50px;
+    background-color: cornflowerblue;
+    margin: 10px;
+}
+
+.first {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+}
+
+.first section {
+    margin: 15px;
+}
+
+.second {
+    text-align: center;
+    margin-left: 200px;
+    margin-right: 200px;
+}
