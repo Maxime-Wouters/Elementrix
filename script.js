@@ -9,19 +9,19 @@ const elementrixData = {
         atomicNumber: 1, valency: "+1 or -1", slug: "hydrogen", name: "Hydrogen", symbol: "H", type: "Element", groupClass: "nonmetal",
         image: "assets/images/hydrogen.webp", explanation: "High Tier Element (1 pt). Simple 1:1 ionic bonds. Great starter card.",
         actions: "Bond: Combine with other elements in the RZ to reach zero valency.",
-        funFacts: ["Most abundant element in the universe."], active: true
+        funFacts: ["Most abundant element in the universe.", "The lightest gas known.", "Highly flammable, used as rocket fuel."], active: true
     },
     "lithium": {
         atomicNumber: 3, valency: "+1", slug: "lithium", name: "Lithium", symbol: "Li", type: "Element", groupClass: "alkali-metal",
         image: "assets/images/lithium.webp", explanation: "High Tier Element (1 pt). Highly reactive metal.",
         actions: "Bond: Combine with other elements in the RZ to reach zero valency.",
-        funFacts: ["Used in rechargeable batteries."], active: true
+        funFacts: ["Used in rechargeable batteries.", "Lightest of all solid metals.", "Soft enough to be cut with a knife."], active: true
     },
     "sodium": {
         atomicNumber: 11, valency: "+1", slug: "sodium", name: "Sodium", symbol: "Na", type: "Element", groupClass: "alkali-metal",
         image: "assets/images/sodium.webp", explanation: "High Tier Element (1 pt). Highly reactive metal.",
         actions: "Bond: Combine with other elements in the RZ to reach zero valency.",
-        funFacts: ["Half of table salt (NaCl)."], active: true
+        funFacts: ["Half of table salt (NaCl).", "Explodes when it comes into contact with water.", "Burns with a bright yellow flame."], active: true
     },
     "potassium": {
         atomicNumber: 19, valency: "+1", slug: "potassium", name: "Potassium", symbol: "K", type: "Element", groupClass: "alkali-metal",
@@ -88,22 +88,22 @@ const elementrixData = {
     
     // Polyatomics (Mocked with fake atomic numbers for the grid layout, or we keep them off grid)
     "sulfate": {
-        atomicNumber: "SO4", valency: "-2", slug: "sulfate", name: "Sulfate", symbol: "SO₄²⁻", type: "Action", groupClass: "condition", // Putting in action deck since it doesn't fit standard table
+        atomicNumber: "SO4", valency: "-2", slug: "sulfate", name: "Sulfate", symbol: "SO₄²⁻", type: "Action", groupClass: "functional-group",
         image: "assets/images/sulfate.webp", explanation: "Polyatomic Ion. Medium Tier (3 pts).",
         actions: "Bond: Needs Heat card to be in the RZ.",
-        funFacts: ["Found in acid rain."], active: true
+        funFacts: ["Found in acid rain.", "Often forms insoluble salts like Barium Sulfate.", "Key component in many fertilizers."], active: true
     },
     "carbonate": {
-        atomicNumber: "CO3", valency: "-2", slug: "carbonate", name: "Carbonate", symbol: "CO₃²⁻", type: "Action", groupClass: "condition",
+        atomicNumber: "CO3", valency: "-2", slug: "carbonate", name: "Carbonate", symbol: "CO₃²⁻", type: "Action", groupClass: "functional-group",
         image: "assets/images/carbonate.webp", explanation: "Polyatomic Ion. Medium Tier (3 pts).",
         actions: "Bond: Needs Heat card to be in the RZ.",
-        funFacts: ["In baking soda and limestone."], active: true
+        funFacts: ["In baking soda and limestone.", "Reacts with acids to release carbon dioxide.", "Vital for the Earth's carbon cycle."], active: true
     },
     "hydroxide": {
-        atomicNumber: "OH", valency: "-1", slug: "hydroxide", name: "Hydroxide", symbol: "OH⁻", type: "Action", groupClass: "condition",
+        atomicNumber: "OH", valency: "-1", slug: "hydroxide", name: "Hydroxide", symbol: "OH⁻", type: "Action", groupClass: "functional-group",
         image: "assets/images/hydroxide.webp", explanation: "Polyatomic Ion. Medium Tier (3 pts).",
         actions: "Bond: Combines to form bases.",
-        funFacts: ["Present in all bases and cleaning products."], active: true
+        funFacts: ["Present in all bases and cleaning products.", "Reacts with hydrogen ions to form water.", "Essential for soap making (saponification)."], active: true
     },
 
     // ---- LOW TIER ELEMENTS (5pts) ----
@@ -161,7 +161,7 @@ const elementrixData = {
         atomicNumber: "A2", valency: "---", slug: "skip", name: "Inert Gas / Skip", symbol: "IG", type: "Action", groupClass: "action",
         image: "assets/images/skip.webp", explanation: "Noble gases are almost entirely non-reactive. They create a 'dead zone'.",
         actions: "The next player in turn order is skipped. They simply draw their card and end their turn.",
-        funFacts: ["Helium, Neon, and Argon are famous inert gases."], active: true
+        funFacts: ["Helium, Neon, and Argon are famous inert gases.", "They have completely full outer electron shells.", "Neon signs glow due to electrified noble gases."], active: true
     },
     "reverse": {
         atomicNumber: "A3", valency: "---", slug: "reverse", name: "Equilibrium", symbol: "EQ", type: "Action", groupClass: "action",
@@ -243,6 +243,8 @@ function getGridPosition(atomicNumber) {
 }
 
 const elementSymbols = ["x", "H", "He", "Li", "Be", "B", "C", "N", "O", "F", "Ne", "Na", "Mg", "Al", "Si", "P", "S", "Cl", "Ar", "K", "Ca", "Sc", "Ti", "V", "Cr", "Mn", "Fe", "Co", "Ni", "Cu", "Zn", "Ga", "Ge", "As", "Se", "Br", "Kr", "Rb", "Sr", "Y", "Zr", "Nb", "Mo", "Tc", "Ru", "Rh", "Pd", "Ag", "Cd", "In", "Sn", "Sb", "Te", "I", "Xe", "Cs", "Ba", "La", "Ce", "Pr", "Nd", "Pm", "Sm", "Eu", "Gd", "Tb", "Dy", "Ho", "Er", "Tm", "Yb", "Lu", "Hf", "Ta", "W", "Re", "Os", "Ir", "Pt", "Au", "Hg", "Tl", "Pb", "Bi", "Po", "At", "Rn", "Fr", "Ra", "Ac", "Th", "Pa", "U", "Np", "Pu", "Am", "Cm", "Bk", "Cf", "Es", "Fm", "Md", "No", "Lr", "Rf", "Db", "Sg", "Bh", "Hs", "Mt", "Ds", "Rg", "Cn", "Nh", "Fl", "Mc", "Lv", "Ts", "Og"];
+const elementNames = ["", "Hydrogen", "Helium", "Lithium", "Beryllium", "Boron", "Carbon", "Nitrogen", "Oxygen", "Fluorine", "Neon", "Sodium", "Magnesium", "Aluminum", "Silicon", "Phosphorus", "Sulfur", "Chlorine", "Argon", "Potassium", "Calcium", "Scandium", "Titanium", "Vanadium", "Chromium", "Manganese", "Iron", "Cobalt", "Nickel", "Copper", "Zinc", "Gallium", "Germanium", "Arsenic", "Selenium", "Bromine", "Krypton", "Rubidium", "Strontium", "Yttrium", "Zirconium", "Niobium", "Molybdenum", "Technetium", "Ruthenium", "Rhodium", "Palladium", "Silver", "Cadmium", "Indium", "Tin", "Antimony", "Tellurium", "Iodine", "Xenon", "Cesium", "Barium", "Lanthanum", "Cerium", "Praseodymium", "Neodymium", "Promethium", "Samarium", "Europium", "Gadolinium", "Terbium", "Dysprosium", "Holmium", "Erbium", "Thulium", "Ytterbium", "Lutetium", "Hafnium", "Tantalum", "Tungsten", "Rhenium", "Osmium", "Iridium", "Platinum", "Gold", "Mercury", "Thallium", "Lead", "Bismuth", "Polonium", "Astatine", "Radon", "Francium", "Radium", "Actinium", "Thorium", "Protactinium", "Uranium", "Neptunium", "Plutonium", "Americium", "Curium", "Berkelium", "Californium", "Einsteinium", "Fermium", "Mendelevium", "Nobelium", "Lawrencium", "Rutherfordium", "Dubnium", "Seaborgium", "Bohrium", "Hassium", "Meitnerium", "Darmstadtium", "Roentgenium", "Copernicium", "Nihonium", "Flerovium", "Moscovium", "Livermorium", "Tennessine", "Oganesson"];
+
 
 document.addEventListener("DOMContentLoaded", () => {
     initThemeToggle();
@@ -373,10 +375,39 @@ function renderPeriodicTable() {
             elDiv.innerHTML += `<span class="tile-name">${availableElements[i].name}</span>`;
         } else {
             elDiv.classList.add("inactive-element");
+            const name = elementNames[i] || symbol;
+            elDiv.title = name;
+            elDiv.innerHTML += `<span class="tile-name">${name}</span>`;
+            elDiv.addEventListener("click", () => {
+                openUnplayableCard(i, symbol, name);
+            });
         }
         
         tableContainer.appendChild(elDiv);
     }
+
+    initPeriodicTableFilters();
+}
+
+function initPeriodicTableFilters() {
+    const searchInput = document.getElementById("table-search");
+    if(!searchInput) return;
+
+    searchInput.addEventListener("input", (e) => {
+        const term = e.target.value.toLowerCase();
+        const tiles = document.querySelectorAll(".periodic-tile");
+        
+        tiles.forEach(tile => {
+            const sym = tile.querySelector(".tile-symbol").innerText.toLowerCase();
+            const name = tile.querySelector(".tile-name") ? tile.querySelector(".tile-name").innerText.toLowerCase() : "";
+            
+            if(sym.includes(term) || name.includes(term)) {
+                tile.classList.remove("tile-faded");
+            } else {
+                tile.classList.add("tile-faded");
+            }
+        });
+    });
 }
 
 function renderActionDeck() {
@@ -392,6 +423,7 @@ function renderActionDeck() {
             let badgeWord = "Action";
             if (data.groupClass === "condition") badgeWord = "Condition";
             if (data.groupClass === "noble-gas") badgeWord = "Reaction";
+            if (data.groupClass === "functional-group") badgeWord = "Functional Grp";
 
             card.innerHTML = `
                 <div class="card-header">
@@ -443,6 +475,8 @@ function openCard(data) {
     
     const imgElement = document.getElementById("detail-image");
     imgElement.src = data.image;
+    imgElement.style.display = "block";
+    document.querySelector(".media-box-wrapper").style.display = "flex";
     imgElement.onerror = () => { imgElement.src = 'https://placehold.co/500x500/121212/00E5FF?text=' + data.symbol; };
     
     document.getElementById("detail-explanation").innerText = data.explanation;
@@ -469,6 +503,7 @@ function openCard(data) {
 function closeCard() {
     const overlay = document.getElementById("detail-overlay");
     overlay.classList.add("hidden");
+    document.getElementById("detail-image").style.display = "block";
     
     if(window.location.hash !== "") {
         history.pushState("", document.title, window.location.pathname + window.location.search);
@@ -505,4 +540,70 @@ function initThemeToggle() {
             iconMoon.style.display = 'block';
         }
     }
+}
+
+function getFunFactsFor(i, symbol, name) {
+    const facts = [];
+    if(i >= 93) {
+        facts.push(`${name} is a synthetic transuranium element.`);
+        facts.push(`It is highly radioactive and does not occur naturally in significant amounts.`);
+    } else if (i >= 57 && i <= 71) {
+        facts.push(`Part of the Lanthanide series, often called "rare earth elements."`);
+        facts.push(`Used extensively in modern electronics and strong magnets.`);
+    } else if (i >= 89 && i <= 103) {
+        facts.push(`Part of the Actinide series.`);
+        facts.push(`All actinide elements are radioactive.`);
+    } else if ([2, 10, 18, 36, 54, 86, 118].includes(i)) {
+        facts.push(`It is a Noble Gas with a completely full outer electron shell.`);
+        facts.push(`Known for being extremely unreactive.`);
+    } else {
+        facts.push(`Element ${i} on the periodic table, known by the symbol ${symbol}.`);
+        facts.push(`It has ${i} protons in its atomic nucleus.`);
+    }
+    
+    const special = {
+        6: ["The foundation of all known organic life.", "Can take the form of graphite or diamond."],
+        14: ["The second most abundant element in the Earth's crust.", "The basis of modern computer chips and semiconductors."],
+        22: ["Titanium is as strong as steel but much lighter.", "Highly resistant to corrosion, even in seawater."],
+        47: ["Silver has the highest electrical conductivity of any element.", "Historically used to prevent bacterial growth."],
+        79: ["Gold is incredibly malleable; one ounce can be beaten into a 300 square foot sheet.", "It does not tarnish or rust."],
+        80: ["Mercury is the only metal that is liquid at standard room temperature.", "Also known as quicksilver, it is highly toxic."],
+        82: ["Lead was widely used in ancient Roman plumbing.", "It is a heavy metal that is extremely dense and blocks radiation."],
+        92: ["Uranium is heavily used as fuel in nuclear power plants.", "It was discovered in 1789 and named after the planet Uranus."]
+    };
+    
+    if(special[i]) {
+        facts.length = 0;
+        facts.push(...special[i]);
+    }
+    return facts;
+}
+
+function openUnplayableCard(num, symbol, name) {
+    const overlay = document.getElementById("detail-overlay");
+    overlay.setAttribute("data-group", "fallback");
+    
+    document.getElementById("detail-symbol").innerText = symbol;
+    document.getElementById("detail-name").innerText = name;
+    document.getElementById("detail-valency").innerText = "---";
+    
+    const imgElement = document.getElementById("detail-image");
+    imgElement.style.display = "none";
+    document.querySelector(".media-box-wrapper").style.display = "none";
+    
+    document.getElementById("detail-explanation").innerHTML = "<strong>DISCLAIMER:</strong> This element is not a playable card in Elementrix and cannot be used in the game.";
+    document.getElementById("detail-actions").innerText = `${name} is element number ${num} on the periodic table.`;
+    document.getElementById("action-title").innerText = "Element Info";
+    
+    const funFactList = document.getElementById("detail-funfacts");
+    funFactList.innerHTML = "";
+    
+    let facts = getFunFactsFor(num, symbol, name);
+    facts.forEach(fact => {
+        const li = document.createElement("li");
+        li.innerText = fact;
+        funFactList.appendChild(li);
+    });
+    
+    overlay.classList.remove("hidden");
 }

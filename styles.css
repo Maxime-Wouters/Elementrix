@@ -21,6 +21,7 @@
     --noble-gas: #0088ff;
     --action-card: #FF6B2B;
     --condition-card: #F5E642;
+    --functional-group: #FF1493;
     --fallback: #888888;
 
     /* Dynamic Base */
@@ -68,8 +69,12 @@
 [data-group="halogen"]        { --accent-color: var(--halogen); }
 [data-group="action"]         { --accent-color: var(--action-card); }
 [data-group="condition"]      { --accent-color: var(--condition-card); }
+[data-group="functional-group"] { --accent-color: var(--functional-group); }
 
 /* Global Reset */
+html {
+    font-size: 18px;
+}
 ::selection {
     background-color: var(--transition-metal);
     color: #1C1C1E;
@@ -396,7 +401,12 @@ body, .global-navbar, .identity-block, .card-bg, .periodic-tile,
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: opacity 0.3s ease, background 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.tile-faded {
+    opacity: 0.15;
+    pointer-events: none;
 }
 
 .periodic-tile .tile-number {
@@ -435,7 +445,7 @@ body, .global-navbar, .identity-block, .card-bg, .periodic-tile,
 .periodic-tile.inactive-element {
     filter: grayscale(100%);
     opacity: 0.35;
-    pointer-events: none;
+    /* Removed pointer-events: none to allow clicking */
 }
 
 /* ===== VIEW 2: Action Deck ===== */
@@ -443,7 +453,7 @@ body, .global-navbar, .identity-block, .card-bg, .periodic-tile,
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    margin-top: 3rem;
+    margin-top: 5rem;
     margin-bottom: 2rem;
     flex-wrap: wrap;
     gap: 1rem;
@@ -583,6 +593,12 @@ body, .global-navbar, .identity-block, .card-bg, .periodic-tile,
     padding: 0.2rem 0.5rem;
     border-radius: 4px;
     display: inline-block;
+}
+
+.interaction-card[data-group="action"] .card-type-badge,
+.interaction-card[data-group="noble-gas"] .card-type-badge,
+.interaction-card[data-group="functional-group"] .card-type-badge {
+    color: #FFFFFF;
 }
 
 .interaction-card .card-title {
