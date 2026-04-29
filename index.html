@@ -1,104 +1,196 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <title>Elementrix</title>
-        <link rel="stylesheet" href="index.css" />
-    </head>
-    <body>
-        <header>
-            <h1>Elementix</h1>
-        </header>
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elementrix Companion</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Exo+2:wght@700;800&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-        <!-- Presentation -->
+    <!-- GLOBAL NAVBAR -->
+    <nav id="main-nav" class="global-navbar">
+        <div class="nav-content">
+            <div class="logo">
+                <h1>ELEMENTRIX</h1>
+            </div>
+            
+            <div class="nav-links">
+                <!-- Using hash routing for tabs -->
+                <button class="nav-tab active-tab" data-target="view-home">Home</button>
+                <button class="nav-tab" data-target="view-table">Periodic Table</button>
+                <button class="nav-tab" data-target="view-deck">Action Deck</button>
+            </div>
 
-        <div class="first">
-            <section class="Text">
-                <p>
-                    Elementrix is a card game designed to turn the confusing and complicated world of chemistry into a
-                    strategic battle of wits. Instead of just memorizing the periodic table from a textbook, players use
-                    a deck of cards to actually build chemical compounds and trigger reactions.
-                </p>
-
-                <p>
-                    The game features three main types of cards: Element cards representing different atoms, reaction
-                    cards that change the environment (like adding heat, catalyst etc), and many more. By playing these
-                    cards into a shared "Reaction Zone," students learn through trial and error how different elements
-                    bond together.
-                </p>
-
-                <p>
-                    The heart of the game is all about balance. To win points, a player must combine elements until
-                    their electrical charges (a.k.a valency) add up to zero, creating a stable molecule. No luck, pure
-                    knowledge. This makes the abstract idea of chemical bonding feel like a puzzle.
-                </p>
-
-                <p>
-                    Elementrix helps students understand why chemicals react the way they do, rewarding those who can
-                    balance their equations and think like a scientist to earn the highest "stability score."
-                </p>
-            </section>
-
-            <section class="video">
-                <iframe
-                    title="demo presentation"
-                    width="420"
-                    height="315"
-                    src="https://www.youtube.com/embed/AjWfY7SnMBI?playlist=AjWfY7SnMBI&loop=1&autoplay=1&mute=1">
-                </iframe>
-            </section>
+            <button class="btn-theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
+                <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </button>
         </div>
+    </nav>
 
-        <hr />
+    <!-- CONTENT WRAPPER -->
+    <main id="app-content">
 
-        <div class="second">
-            <h2>Why Elementrix ?</h2>
+        <!-- VIEW 0: HOME -->
+        <section id="view-home" class="view-panel active-panel">
+            <div class="home-hero">
+                <div class="hero-content">
+                    <h2 class="hero-title">Balance the Bonds.<br/><span class="text-gradient">Master the Elements.</span></h2>
+                    <p class="hero-desc">
+                        Elementrix is a card game designed to turn the confusing and complicated world of chemistry into a
+                        strategic battle of wits. Instead of just memorizing the periodic table from a textbook, players use
+                        a deck of cards to actually build chemical compounds and trigger reactions.
+                    </p>
+                    <div class="hero-actions">
+                        <button class="btn-primary" onclick="document.querySelector('[data-target=\'view-table\']').click()">Enter the Lab</button>
+                        <a class="btn-secondary" href="https://raw.githubusercontent.com/saad-radouane/rules/91dd9d0f0ce6cebc691850deb32a2edc5c97f079/FINAL_RULE_MANUAL%20(10).docx" download>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            Download Rules
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-video-wrapper">
+                    <iframe
+                        class="hero-video"
+                        title="demo presentation"
+                        src="https://www.youtube.com/embed/AjWfY7SnMBI?playlist=AjWfY7SnMBI&loop=1&autoplay=1&mute=1">
+                    </iframe>
+                </div>
+            </div>
 
-            <p>
-                Students are first introduced to the concept of atoms and how they stick together. The game simplifies
-                valency,being a perfect match as well for the pre-algebra skills typically mastered in 7th or 8th grade.
-            </p>
-        </div>
-
-        <hr />
-
-        <h3>Balance the Bonds. Master the Elements.</h3>
-
-        <!-- mission statement -->
-        <p>
-            "Our mission is to help teachers spark genuine curiosity in every student , turning lessons that seem dull
-            into experiences that are as enjoyable as they are meaningful, because we believe no subject is truly boring
-            when taught the right way."
-        </p>
-
-        <!-- Periodic page link -->
-
-        <section class="link">
-            <a href="Perdiodic_page.html">Periodic page</a>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Why Elementrix?</h3>
+                    <p>Students are first introduced to the concept of atoms and how they stick together. The game simplifies valency, being a perfect match as well for the pre-algebra skills typically mastered in 7th or 8th grade.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Strategic Play</h3>
+                    <p>The game features three main types of cards: Element cards representing different atoms, and reaction cards that change the environment (like adding heat or a catalyst).</p>
+                </div>
+                <div class="info-card">
+                    <h3>Our Mission</h3>
+                    <p>"Our mission is to help teachers spark genuine curiosity in every student, turning lessons that seem dull into experiences that are as enjoyable as they are meaningful."</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- VIEW 1: Periodic Table -->
+        <section id="view-table" class="view-panel">
+            <div class="deck-header">
+                <div>
+                    <h2 class="view-title">PERIODIC TABLE</h2>
+                    <p class="view-subtitle">Select an element to view its properties.</p>
+                </div>
+            </div>
+            <div class="periodic-grid-container">
+                <div id="periodic-table" class="periodic-table">
+                    <!-- Javascript will render grid here -->
+                </div>
+            </div>
         </section>
 
-        <h3>Play. React. Learn.</h3>
-
-        <!-- value proposition -->
-
-        <p>
-            Elementrix helps teachers and students learn the periodic table more effectively by turning chemistry
-            concepts into a fun, easy to learn card game that improves understanding and memorization through play.
-        </p>
-
-        <!-- Rules page link -->
-        <section class="link">
-            <a
-                href="https://raw.githubusercontent.com/saad-radouane/rules/91dd9d0f0ce6cebc691850deb32a2edc5c97f079/FINAL_RULE_MANUAL%20(10).docx"
-                download>
-                Rules page
-            </a>
+        <!-- VIEW 2: Action Deck -->
+        <section id="view-deck" class="view-panel">
+            <div class="deck-header">
+                <div>
+                    <h2 class="view-title">THE LABORATORY DECK</h2>
+                    <p class="view-subtitle">Tactical tools, modifiers, and absolute sabotage.</p>
+                </div>
+                <div class="deck-controls">
+                    <div class="search-bar">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        <input type="text" id="action-search" placeholder="Search cards..." />
+                    </div>
+                    <div class="filter-group" id="deck-filters">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="action">Actions</button>
+                        <button class="filter-btn" data-filter="noble-gas">Reactions</button>
+                        <button class="filter-btn" data-filter="condition">Conditions</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="action-cards" class="action-cards-grid">
+                <!-- Action Cards injected here via JS -->
+            </div>
+            
+            <!-- Empty state if search fails -->
+            <div id="deck-empty-state" class="empty-state hidden">
+                <p>No laboratory equipment matches your parameters.</p>
+            </div>
         </section>
 
-        <!-- link to social media post -->
-
-        <footer>
-            <p>Footer</p>
+        <footer class="home-footer">
+            <p>Play. React. Learn. &copy; Elementrix</p>
         </footer>
-    </body>
+    </main>
+
+    <!-- DETAIL OVERLAY -->
+    <div id="detail-overlay" class="overlay-container hidden" data-group="fallback">
+        <div class="identity-card">
+            <!-- Header Section -->
+            <header class="identity-block">
+                <button class="btn-close" id="btn-close-overlay" aria-label="Close">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+                <div class="element-info">
+                    <div class="element-symbol" id="detail-symbol">--</div>
+                    <div class="element-name" id="detail-name">Loading...</div>
+                </div>
+                <div class="atomic-number-wrapper">
+                    <div class="atomic-number-glow">
+                        <span class="atomic-number" id="detail-valency">--</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="scroll-content">
+                <section class="media-box-wrapper" aria-label="Media View">
+                    <div class="media-box">
+                        <img id="detail-image" src="" alt="Element Image" loading="lazy" />
+                    </div>
+                </section>
+
+                <div class="blocks-wrapper">
+                    <section class="desc-block desc-why" id="block-explanation">
+                        <h3 class="block-title">The Chemistry</h3>
+                        <p id="detail-explanation">Explanation loads here.</p>
+                    </section>
+
+                    <section class="desc-block desc-how" id="block-actions">
+                        <h3 class="block-title" id="action-title">The Effect</h3>
+                        <div class="highlight-box">
+                            <p id="detail-actions">Actions load here.</p>
+                        </div>
+                    </section>
+
+                    <section class="desc-block desc-fun" id="block-fun">
+                        <div class="fun-fact">
+                            <div class="icon-bulb-wrapper">
+                                <svg class="icon-bulb" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M14 22h-4"></path>
+                                    <path d="M15 18h-6"></path>
+                                    <path d="M9 14.5a3.5 3.5 0 0 1-3.5-3.5v-.5a3.5 3.5 0 0 1 7 0v.5a3.5 3.5 0 0 1 3.5 3.5v.5"></path>
+                                    <path d="M16 11V7a4 4 0 0 0-8 0v4"></path>
+                                </svg>
+                            </div>
+                            <div class="fact-content">
+                                <strong>Did You Know?</strong>
+                                <ul id="detail-funfacts" class="funfact-list"></ul>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script loading -->
+    <script src="script.js"></script>
+</body>
 </html>
