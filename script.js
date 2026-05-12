@@ -212,6 +212,18 @@ const elementrixData = {
         image: "cards/Shields/helium.webp", explanation: "Noble gases have full outer electron shells, nature's perfect shield.",
         actions: "Out-of-turn play: Cancel any Action card that targets you entirely. Discard after use.",
         funFacts: ["Helium is so light it escapes Earth's gravity."], active: true
+    },
+    "shield_ne": {
+        tier: "action", atomicNumber: "Ng2", valency: "---", slug: "shield_ne", name: "Neon Shield", symbol: "Ne", type: "Action", groupClass: "noble-gas",
+        image: "cards/Shields/neon.webp", explanation: "Noble gases have full outer electron shells, nature's perfect shield.",
+        actions: "Out-of-turn play: Cancel any Action card that targets you entirely. Discard after use.",
+        funFacts: ["'Neon signs' technically only glow red-orange."], active: true
+    },
+    "shield_ar": {
+        tier: "action", atomicNumber: "Ng3", valency: "---", slug: "shield_ar", name: "Argon Shield", symbol: "Ar", type: "Action", groupClass: "noble-gas",
+        image: "cards/Shields/argon.webp", explanation: "Noble gases have full outer electron shells, nature's perfect shield.",
+        actions: "Out-of-turn play: Cancel any Action card that targets you entirely. Discard after use.",
+        funFacts: ["Argon makes up about 1% of Earth's atmosphere."], active: true
     }
 };
 
